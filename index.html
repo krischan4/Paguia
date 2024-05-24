@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>CHRISTIAN PAGUIA | Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script
+      src="https://kit.fontawesome.com/836a943e18.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+  </head>
+  <style>
+    
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&family=Share+Tech+Mono&display=swap");
+
+/* Global styles */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 12px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  color: #e7e7e7;
+  background: rgb(19, 19, 19);
+}
+
+a {
+  text-decoration: none;
+  color: rgb(3, 155, 155);
+}
+
+a:hover {
+  color: rgba(249, 105, 14, 1);
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* header */
+
+header {
+  width: 100%;
+  height: 5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.nav-brand {
+  width: 7rem;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.line1 {
+  width: 15px;
+  height: 3px;
+  margin: 5px 0;
+  background: linear-gradient(
+    135deg,
+    rgba(249, 105, 14, 1) 0%,
+    rgb(255, 255, 255) 100%
+  );
+}
+
+.line2 {
+  width: 30px;
+  height: 3px;
+  background: linear-gradient(
+    135deg,
+    rgba(249, 105, 14, 1) 0%,
+    rgb(255, 255, 255) 100%
+  );
+}
+
+.line3 {
+  width: 15px;
+  height: 3px;
+  margin: 5px 0;
+  margin-left: 15px;
+  background: linear-gradient(
+    135deg,
+    rgba(249, 105, 14, 1) 0%,
+    rgb(255, 255, 255) 100%
+  );
+}
+
+.burger-menu-icon {
+  cursor: pointer;
+  z-index: 999;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: rgba(55, 55, 55, 0.5);
+  padding: 1.2rem;
+  border-radius: 0% 0% 0% 40%;
+}
+
+.profile-pic {
+  height: 9rem;
+  width: auto;
+  border-radius: 50%;
+  display: block;
+  margin: 1.5rem 0;
+}
+
+.caption {
+  display: block;
+}
+
+.nav-list {
+  width: 24rem;
+  height: 100vh;
+  background-color: #222222;
+  position: fixed;
+  top: 0;
+  right: -26rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: start;
+  z-index: 998;
+  transition: all 650ms ease-in-out;
+}
+
+.nav-list.active {
+  right: 0;
+}
+
+.nav-item {
+  margin: 1.2rem 0;
+}
+
+.nav-link {
+  opacity: 0;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: #cecece;
+  letter-spacing: 1.5px;
+}
+
+.nav-link:hover {
+  color: rgba(249, 105, 14, 1);
+}
+
+.toggle {
+  background: none;
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px) scaleX(2);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px) scaleX(2);
+  margin-left: 0px;
+}
+
+@keyframes navLinkAnimate {
+  from {
+    opacity: 0;
+    transform: translate(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+
+/* Landing Page */
+.landing-page {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+      135deg,
+      rgba(0, 64, 77, 0.9) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url("images/landing-page.png") center no-repeat;
+  background-size: contain;
+  position: relative;
+}
+
+.main-message {
+  width: 100%;
+  max-width: 58rem;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.main-message h2 {
+  letter-spacing: 1.2rem;
+  font-size: 2rem;
+  font-weight: 400;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 5s steps(27), blink 1s ease-in-out 7s infinite;
+  width: 27ch;
+  margin: auto;
+  border-right: 4px solid rgba(255, 255, 255, 1);
+}
+
+@keyframes typing {
+  75% {
+    width: 0ch;
+    color: rgba(249, 105, 14, 1);
+  }
+  100% {
+    width: 27ch;
+  }
+}
+
+@keyframes blink {
+  0% {
+    border-right: 4px solid rgba(255, 255, 255, 0);
+  }
+  100% {
+    border-right: 4px solid rgb(194, 194, 194);
+  }
+}
+
+.main-message h3 {
+  font-size: 4rem;
+  margin: 1rem 0;
+  color: rgba(249, 105, 14, 1);
+  background: linear-gradient(
+    to right,
+    rgba(249, 105, 14, 1) 0%,
+    rgba(102, 51, 153, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main-message p {
+  text-transform: none;
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+.intro-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  margin: 0 9px;
+  background: rgba(3, 155, 155);
+  border-radius: 2rem;
+  color: #fafafa;
+  padding: 1rem 2.5rem;
+  display: inline-block;
+  margin-top: 2rem;
+  transition: background-color 650ms;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.btn:hover {
+  color: #fafafa;
+  background-color: rgba(189, 72, 0);
+}
+
+.scroll-down i {
+  color: #fafafa;
+  transition: color 650ms;
+  margin-top: 2rem;
+  font-size: 3.5rem;
+}
+
+.scroll-down i:hover {
+  color: rgba(189, 72, 0);
+}
+
+/* About */
+
+.about {
+  width: 100%;
+  min-height: 100vh;
+  max-width: 70rem;
+  margin: auto;
+}
+
+.about .container {
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.about-img img {
+  height: 12rem;
+  width: auto;
+  border-radius: 50%;
+  margin: 2rem;
+  box-shadow: 0 20px 30px 0 rgba(0, 255, 255, 0.15);
+}
+
+.about-text-box {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
+.about-text-box h2 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.about-text-box p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  padding: 0;
+  margin-bottom: 1.45rem;
+}
+
+hr {
+  margin: 4rem 0;
+  background: linear-gradient(
+    to right,
+    rgba(249, 105, 14, 1) 0%,
+    rgba(102, 51, 153, 1) 100%
+  );
+  border: 0;
+  height: 1px;
+}
+
+/* Services */
+
+.services {
+  padding: 3rem 0;
+  min-height: 100vh;
+  max-width: 90rem;
+  margin: auto;
+}
+
+.title-heading {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.title-heading h2 {
+  font-size: 2rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.title-heading p {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 5rem;
+}
+
+.service-tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2.5rem;
+}
+
+.tier-item {
+  height: 30rem;
+  padding: 3rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: default;
+}
+
+.tier-item i {
+  font-size: 3.5rem;
+}
+
+.tier-item h2 {
+  font-size: 2rem;
+  margin: 2rem 0;
+  background: linear-gradient(
+    to right,
+    rgba(249, 105, 14, 1) 0%,
+    rgba(102, 51, 153, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tier-item p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+}
+
+/* Projects */
+
+.projects {
+  padding: 3rem 0;
+  min-height: 100vh;
+  max-width: 70rem;
+  margin: auto;
+}
+
+.has-margin-right {
+  margin: 0 3rem 0 0;
+}
+
+.project-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1.45rem 5rem 1.45rem;
+}
+
+.project-img {
+  flex: 1;
+}
+
+.project-description {
+  flex: 1;
+}
+
+.project-description h2 {
+  font-size: 2rem;
+  margin: 2rem 0;
+  background: linear-gradient(
+    to right,
+    rgba(249, 105, 14, 1) 0%,
+    rgba(102, 51, 153, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-description p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+}
+
+.project-link {
+  display: inline-block;
+  margin: 2rem 0;
+  font-size: 1.4rem;
+}
+
+/* Contact */
+
+.contact {
+  width: 100%;
+  min-height: 100vh;
+  max-width: 70rem;
+  margin: auto;
+  padding-top: 5rem;
+}
+
+.contact h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+.contact p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  padding: 0;
+  margin: 0.9rem 2rem;
+}
+
+.contact .container {
+  min-height: 50vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* Footer */
+
+footer {
+  width: 100%;
+  max-width: 70rem;
+  margin: auto;
+  padding: 2.5rem;
+  color: #8a8a8a;
+  text-align: center;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+footer a {
+  margin: 0 0.2rem;
+}
+
+.footer-coded-by {
+  margin: 2rem 0;
+}
+
+.footer-social a {
+  margin: 0 0.5rem;
+  font-size: 2rem;
+}
+
+/* Responsive Design */
+
+@media (max-width: 750px) {
+  .main-message h3 {
+    font-size: 3rem;
+  }
+  .about .container {
+    flex-direction: column;
+  }
+  p {
+    font-size: 1.3rem;
+  }
+  .title-heading {
+    margin: 0;
+  }
+
+  .services-tiers {
+    gap: 0;
+  }
+  .project-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    box-shadow: 0 20px 30px 0 rgba(212, 255, 255, 0.15);
+  }
+  .project-img {
+    width: 20rem;
+  }
+}
+
+@media (max-width: 665px) {
+  .main-message {
+    top: 55%;
+  }
+  .main-message h2 {
+    letter-spacing: 1rem;
+    font-size: 1.5rem;
+    width: 29ch;
+  }
+
+  .main-message h3 {
+    font-size: 2rem;
+  }
+
+  .main-message p {
+    font-size: 1.3rem;
+  }
+  .btn {
+    border-radius: 0.9rem;
+    padding: 0.9rem 0.9rem;
+  }
+  .about-text-box h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  .about-text-box p {
+    margin: 0 0 2.45rem;
+  }
+
+  .title-heading h2 {
+    margin-bottom: 2rem;
+  }
+  .title-heading p {
+    font-size: 1.3rem;
+  }
+
+  .contact .container {
+    flex-direction: column;
+  }
+
+  footer,
+  footer p {
+    font-size: 1.2rem;
+  }
+}
+
+  </style>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="nav-brand">
+            <a href="index.html">
+              <img src="img/dp.jpg" alt="Paguia" />
+            </a>
+          </div>
+          <div class="burger-menu-icon">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#landing-page">
+                <img
+                  src="img/dp.jpg"
+                  alt="Christian Paguia"
+                  class="profile-pic nav-link"
+                />
+                <span class="caption nav-link">CHRISTIAN PAGUIA</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#services" class="nav-link">Services</a>
+            </li>
+            <li class="nav-item">
+              <a href="#projects" class="nav-link">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" target="_blank" class="nav-link">
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a href="#" target="_blank" class="nav-link">
+                <i class="fab fa-dev"></i>
+              </a>
+              <a href="#" target="_blank" class="nav-link">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <div class="cta">
+              <a href="#" target="_blank" class="btn nav-link">Buy Me Coffee</a>
+            </div>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section id="landing-page" class="landing-page">
+        <div class="container">
+          <div class="main-message">
+            <h2>CHRISTIAN <br>PAGUIA</br></h2>
+            <h3>{Front-End Web Developer}</h3>
+            <p>Html . CSS . JavaScript . React . Gatsby</p>
+            <div class="intro-btn">
+              <div class="cta">
+                <a href="#contact" class="btn">Get In Touch</a>
+              </div>
+              <div class="cta">
+                <a href="#projects" class="btn">My Projects</a>
+              </div>
+            </div>
+            <div>
+              <a href="#about" class="scroll-down">
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="about" class="about">
+        <div class="container">
+          <div class="about-img">
+            <img
+              src="img/ph1.jpg"
+              alt="PAGUIA"
+              class="about-pic"
+            />
+          </div>
+          <div class="about-text-box">
+            <h2>Hello 👋🏽</h2>
+            <p>
+              Hi My name CHRISTIAN PAGUIA IT student 1st year in global reciprocal college
+            </p>
+            <p>
+              I Have expercience about Programming Example Html,Css and js
+              I use because I want to professional Programmer
+            </p>
+            <p>
+               10 years from right now i see my self to professional Developer
+            </p>
+          </div>
+        </div>
+        <hr />
+      </section>
+      <section id="services" class="services">
+        <div class="container">
+          <div class="title-heading">
+            <h2>DIGITIZE YOUR BUSINESS</h2>
+            <p>
+              i will help you to create a remarkable first impression with
+              creative designs
+            </p>
+          </div>
+          <div class="service-tiers">
+            <div class="tier-item">
+              <i class="fa fa-code" aria-hidden="true"></i>
+              <h2>Web Development</h2>
+              <p>
+                The role of HTML in web development is to provide the backbone and structure of a web page. It defines the layout and organization of content on a web page by using a ranked structure of elements. 
+                HTML tags allow developers to specify the type of content being displayed and how it should be presented
+              </p>
+            </div>
+            <div class="tier-item">
+              <i class="fa fa-mobile" aria-hidden="true"></i>
+              <h2>Responsive Design</h2>
+              <p>
+                Responsive web design (RWD) is a web design approach to make web pages render well on all screen sizes and resolutions while ensuring good usability. 
+                It is the way to design for a multi-device web.
+              </p>
+            </div>
+            <div class="tier-item">
+              <i class="fa fa-file-code-o" aria-hidden="true"></i>
+              <h2>Programming</h2>
+              <p>
+                Programming is the mental process of thinking up instructions to give to a machine (like a computer). 
+                Coding is the process of transforming those ideas into a written language that a computer can understand.
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </section>
+      <section id="projects" class="projects">
+        <div class="title-heading">
+          <h2>PROJECTS</h2>
+          <p>these are some of my recent projects</p>
+        </div>
+        <div class="project-item">
+          <div class="project-img has-margin-right">
+            <img src="img/Project-Management-Process.webp" />
+          </div>
+          <div class="project-description">
+            <h2>Project Progress Management System</h2>
+            <p>
+              This is a system for monitoring projects' progress of final year
+              students. It have three levels of users i.e Students, Supervisors
+              and the Project Coordinator. Each user have a specific role in the
+              system. Students have the lowest privilege. I developed this
+              system using React, Redux and Firebase
+            </p>
+            <a href="#" class="project-link" target="_blank"
+              ><i class="fa fa-github" aria-hidden="true"> View Code</i></a
+            >
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-description has-margin-right">
+            <h2>To-do App</h2>
+            <p>
+              This is a simple to-do app I developed for educational purpose on
+              my YouTube Channel. It allows the user to perform CRUD operations
+              e.g adding and removing tasks from the database. Users must
+              register and login for them to use the app. A user can only see
+              the tasks that he/she have added. I developed this app using
+              React, Redux and Firebase.
+            </p>
+            <a href="#" class="project-link" target="_blank"
+              ><i class="fa fa-github" aria-hidden="true"> View Code</i></a
+            >
+          </div>
+          <div class="project-img">
+            <img src="img/todo.png" />
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-img has-margin-right">
+            <img src="img/designer.webp" />
+          </div>
+          <div class="project-description">
+            <h2>Designer</h2>
+            <p>
+              Designer is a person who plans how something will look. An architect is a designer of buildings, 
+              drawing detailed blueprints indicating what the structures should look like and how they should be built.
+            </p>
+            <a href="#" class="project-link" target="_blank"
+              ><i class="fa fa-github" aria-hidden="true"> View Code</i></a
+            >
+          </div>
+        </div>
+        <hr />
+      </section>
+      <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <p>
+          I'd love if you reached out to me. Even if it's just to say "Hey!".
+          Don't hesitate! Drop me a line and I’ll get back to you ASAP!
+        </p>
+        <p>
+          <i
+            >For gig and advertising opportunities, begin your subject with
+            <strong>"Gig"</strong></i
+          >
+        </p>
+        <div class="container">
+          <p>
+            <a href="mailto:cpaguia44@gmail.com"
+              ><i class="fas fa-envelope-open"></i> cpaguia44@gmail.com</a
+            >
+          </p>
+          <p>
+            <a href="#" target="_blank"
+              ><i class="fab fa-youtube"> YouTube</i></a
+            >
+          </p>
+          <p>
+            <a href="#" target="_blank"><i class="fab fa-dev"> Dev</i></a>
+          </p>
+          <p>
+            <a href="#" target="_blank"
+              ><i class="fab fa-twitter"> Twitter</i></a
+            >
+          </p>
+        </div>
+        <hr />
+      </section>
+      <footer>
+        <div class="footer-nav">
+          <a href="#landing-page" class="footer-nav-link">Home</a>
+          <a href="#about" class="footer-nav-link">About< /a>
+          <a href="#services" class="footer-nav-link">Services</a>
+          <a href="projects" class="footer-nav-link">Projects</a>
+          <a href="#contact" class="footer-nav-link">Contact</a>
+        </div>
+        <div class="footer-coded-by">
+          <p>
+            <i class="fas fa-code"></i> with 💙 by CHRISTIAN &copy; 2020
+          </p>
+          <p>Built with pure HTML, CSS and JavaScript</p>
+        </div>
+        <div class="footer-social">
+          <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-dev"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+      </footer>
+    </main>
+    <script >
+        // Function expression to select elements `
+
+const selectElement = (s) => document.querySelector(s);
+const navLinks = document.querySelectorAll(".nav-link");
+
+selectElement(".burger-menu-icon").addEventListener("click", () => {
+    selectElement(".nav-list").classList.toggle("active");
+    selectElement(".burger-menu-icon").classList.toggle("toggle")
+
+    navLinks.forEach((link, index) => {
+        if (link.style.animation){
+            link.style.animation = ""
+        }else{
+            link.style.animation = `navLinkAnimate 0.5s ease forwards ${ index/7 + 0.5}s`
+            console.log(index/7 + 0.5)
+        }
+    })
+});
+
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        selectElement(".nav-list").classList.toggle("active");
+        selectElement(".burger-menu-icon").classList.toggle("toggle");
+
+        navLinks.forEach((link, index) => {
+            if (link.style.animation){
+                link.style.animation = ""
+            }else{
+                link.style.animation = `navLinkAnimate 0.5s ease forwards ${ index/7 + 0.5}s`
+                console.log(index/7 + 0.5)
+            }
+        })
+    })
+})
+    </script>
+  </body>
+</html>
